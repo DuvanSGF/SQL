@@ -35,3 +35,18 @@ SELECT C.camisa, avg(c.PESO_GR + p.pESO_GR) as Promedio
 FROM camisas C , pantalones P
 GROUP BY c.camisa
 Having promedio > 850;
+/*
+Ejercicio 3
+Construya una consulta SQL que devuelva las combinaciones de las camisas con
+los pantalones de manera que: la primera camisa se combine con todos los
+pantalones menos con el primero, la segunda camisa se combine con todos los
+pantalones menos con el segundo, y así sucesivamente.
+*/
+-- Mi solucion
+select *
+from CAMISAS , PANTALONES
+where ID_Pantalon = 2 AND ID_Camisa = 1
+Union
+ select *
+from CAMISAS , PANTALONES
+where ID_Pantalon = 1 AND ID_Camisa = 2;
