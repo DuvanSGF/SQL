@@ -44,9 +44,19 @@ pantalones menos con el segundo, y así sucesivamente.
 */
 -- Mi solucion
 select *
-from CAMISAS , PANTALONES
-where ID_Pantalon = 2 AND ID_Camisa = 1
-Union
- select *
-from CAMISAS , PANTALONES
-where ID_Pantalon = 1 AND ID_Camisa = 2;
+from CAMISAS C , PANTALONES P
+where C.ID_CAMISA != P.ID_PANTALON;
+/*
+Ejercicio 4
+Construya una consulta que devuelva la lista de prendas de una maleta que
+contiene todas las camisas, pantalones y calzados.
+*/
+
+select concat('Camisa de ',CAMISA) as PRENDA
+from CAMISAS
+union all
+select concat('Pantalón de ',PANTALON)
+from PANTALONES
+union all
+select concat('Calzado: ',CALZADO)
+from CALZADOS;
