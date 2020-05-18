@@ -51,7 +51,6 @@ Ejercicio 4
 Construya una consulta que devuelva la lista de prendas de una maleta que
 contiene todas las camisas, pantalones y calzados.
 */
-
 select concat('Camisa de ',CAMISA) as PRENDA
 from CAMISAS
 union all
