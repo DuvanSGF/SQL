@@ -32,6 +32,7 @@ compuesta y estará formada por todos estos campos que son clave primaria en los
 maestros. A su vez estos campos por separado serán clave foránea de sus
 respectivos maestros. Por tanto los registros hijos se hallarán en la tabla de relación.
 
+
 El modo de obtener la reunión de tablas relacionadas es mediante filtros sobre el
 producto cartesiano de dichas tablas, excluyendo con ayuda de la cláusula WHERE
 aquellos registros del producto cartesiano que carecen de sentido y obteniendo los
