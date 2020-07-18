@@ -29,3 +29,14 @@ acompañado del número de cursos que imparte
      from CURSOS C, PROFESORES P
     where C.ID_PROFE = P.ID_PROFE
    GROUP BY P.NOMBRE
+
+
+/*
+   ¿Cuántos alumnos hay matriculados en cada uno de los cursos? Construya una
+   consulta que responda a esta cuestión de modo que el resultado muestre el título
+   del curso acompañado del número de alumnos matriculados.
+*/
+-- Solucion
+select COUNT(*) as cantidadEstudiantes ,ID_curso
+  from ALUMNOS_CURSOS
+   GROUP BY ID_CURSO
