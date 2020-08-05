@@ -32,6 +32,7 @@ acompañado del número de cursos que imparte
 
 
 /*
+Ejercicio 3
    ¿Cuántos alumnos hay matriculados en cada uno de los cursos? Construya una
    consulta que responda a esta cuestión de modo que el resultado muestre el título
    del curso acompañado del número de alumnos matriculados.
@@ -40,3 +41,9 @@ acompañado del número de cursos que imparte
 select COUNT(*) as cantidadEstudiantes ,ID_curso
   from ALUMNOS_CURSOS
    GROUP BY ID_CURSO
+
+/*
+
+Modifique la anterior consulta de modo que muestre aquellos cursos que el número
+de alumnos matriculados sea exactamente de dos alumnos.
+*/
