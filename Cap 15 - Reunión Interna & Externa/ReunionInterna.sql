@@ -31,3 +31,23 @@ select C.TITULO CURSO
  Programación PHP
  SQL desde cero
  */
+
+/*
+Observe como en la cláusula WHERE se establece un filtro propiamente dicho, y en
+la cláusula ON se establece la condición de reunión que el motor debe aplicar entre
+las tablas a ambos lados de la cláusula INNER JOIN.
+
+Veamos un último ejemplo de reunión interna en la que aparezcan tres tablas, para
+ello tomemos otro ejemplo del capítulo anterior, la reunión de los alumnos con los
+
+cursos que cursa cada uno. Tomando ejemplos equivalentes construidos
+únicamente con la cláusula WHERE se pueden observar mejor las diferencias
+*/
+
+-- Ejemplo de iteracion con tres tablas. 
+select C.TITULO CURSO ,
+concat(A.APELLIDOS,', ',A.NOMBRE ) ALUMNO
+from ALUMNOS_CURSOS AC inner join ALUMNOS A
+on AC.ID_ALUMNO = A.ID_ALUMNO inner join CURSOS C
+on AC.ID_CURSO = C.ID_CURSO
+order by C.TITULO , A.NOMBRE , A.APELLIDOS
