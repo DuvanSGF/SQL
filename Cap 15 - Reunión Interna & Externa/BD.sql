@@ -51,3 +51,23 @@ INSERT INTO profesores VALUES (4, "Carlos",	"García Martínez", "1985-05-24");
 
 -- Verificamos que la tabla este correcta.
 SELECT * FROM profesores;
+
+
+-- Creación de la tabla alumnos cursos.
+CREATE TABLE alumnos_cursos (
+  ID_ALUMNO	INT,
+  ID_CURSO INT
+);
+
+-- Insertamos Datos en la tabla
+INSERT INTO alumnos_cursos VALUES (1, 1);
+INSERT INTO alumnos_cursos VALUES (3, 1);
+INSERT INTO alumnos_cursos VALUES (5, 1);
+INSERT INTO alumnos_cursos VALUES (4, 2);
+INSERT INTO alumnos_cursos VALUES (1, 3);
+INSERT INTO alumnos_cursos VALUES (5, 3);
+INSERT INTO alumnos_cursos VALUES (2, 4);
+INSERT INTO alumnos_cursos VALUES (6, 4);
+
+-- Verificamos que la tabla este correcta.
+SELECT * FROM alumnos_cursos; 
