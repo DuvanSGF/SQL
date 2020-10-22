@@ -53,4 +53,26 @@ select *
 Para que se muestre la informacion importante y que se al correcta la condicion
 la debemos aplicar siempre en el Where y no en el ON
 Ya que pueden venir campos vacios con informacion que no nos interesa.
- */
+
+Ejercicio
+Alumnos matriculados en cada curso con el nombre del curso , aunque estos sean cero:
+*/
+Select * from cursos;
+ Select * from alumnos_cursos;
+
+SELECT C.TITULO, COUNT(A.ID_ALUMNO) AS Estudiantes, count(1) REGISTROS
+FROM Alumnos_cursos A -- Realmente cumple con la condicion pero hay Datos que no necesito, Para eso puedo resolverlo con un WHERE
+RIGHT OUTER JOIN cursos C
+ON A.ID_CURSO = C.ID_CURSO
+GROUP BY C.titulo;
+
+/*
+Existen dos sintaxis para realizar las operaciones de reunión ya sea externa o
+interna, dependiendo del SGBD. Basada en cláusula WHERE o bien basada en
+cláusula INNER JOIN / OUTER JOIN. Lo ideal sería dejar a criterio del desarrollador
+el uso de cualquiera de ellas siempre y cuando el SGBD lo soporte.
+En una reunión externa debemos tratar siempre la tabla cuyos campos pueden venir
+a nulo poniendo todos los campos que establecen condiciones de dicha tabla en la
+cláusula ON del OUTER JOIN, si lo hacemos en la cláusula WHERE como filtro
+corriente la reunión externa se rompe y carece de sentido.
+*/
