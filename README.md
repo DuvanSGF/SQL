@@ -1,4 +1,4 @@
-# SQL Course
+# SQL Course from Zero to Legend.
 
 This repo has slides, exercises, solutions and support material for the SQL FACIL Book course at [SQL FACIL](http://sqlfacil.com/)
 
