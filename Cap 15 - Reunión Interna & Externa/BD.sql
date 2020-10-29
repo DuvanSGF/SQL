@@ -1,8 +1,8 @@
 -- Creacion de la Tabla Cursos
 CREATE TABLE cursos (
-ID_CURSO int,
-TITULO	Varchar(100),
-ID_PROFE int
+ID_CURSO int NOT NULL,
+TITULO	Varchar(100) NOT NULL,
+ID_PROFE int NULL
 );
 
 -- Insertamos los Datos
@@ -18,10 +18,10 @@ SELECT * FROM cursos;
 
 -- Creación de la tabla Alumnos
 CREATE TABLE alumnos (
-  ID_ALUMNO int,
-  NOMBRE Varchar(100),
-  APELLIDOS Varchar(100),
-  F_NACIMIENTO Varchar(100)
+  ID_ALUMNO int NOT NULL,
+  NOMBRE Varchar(100) NOT NULL,
+  APELLIDOS Varchar(100) NOT NULL,
+  F_NACIMIENTO Varchar(100) NOT NULL
 );
 
 -- Insertamos los Datos
@@ -37,10 +37,10 @@ SELECT * FROM alumnos;
 
 -- Creación de la tabla profesores
 CREATE TABLE profesores (
-  ID_PROFE int,
-  NOMBRE varchar(100),
-  APELLIDOS varchar(100),
-  F_NACIMIENTO Varchar(100)
+  ID_PROFE int NOT NULL,
+  NOMBRE varchar(100) NOT NULL,
+  APELLIDOS varchar(100) NOT NULL,
+  F_NACIMIENTO Varchar(100) NOT NULL
 );
 
 -- Insertamos los Datos
@@ -55,8 +55,8 @@ SELECT * FROM profesores;
 
 -- Creación de la tabla alumnos cursos.
 CREATE TABLE alumnos_cursos (
-  ID_ALUMNO	INT,
-  ID_CURSO INT
+  ID_ALUMNO	INT NOT NULL,
+  ID_CURSO INT NOT NULL
 );
 
 -- Insertamos Datos en la tabla
@@ -70,4 +70,4 @@ INSERT INTO alumnos_cursos VALUES (2, 4);
 INSERT INTO alumnos_cursos VALUES (6, 4);
 
 -- Verificamos que la tabla este correcta.
-SELECT * FROM alumnos_cursos; 
+SELECT * FROM alumnos_cursos;
