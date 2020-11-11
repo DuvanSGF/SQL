@@ -89,3 +89,75 @@ create unique index CURSOS_ID_PROFE_INX on CURSOS (ID_PROFE);
 
 -- Con esta restricción definida en la BD, el SGBD no permitirá que dos o más registros
 -- contengan el mismo dato en el campo ID_PROFE.
+
+
+/*
+
+ÍNDICES IMPLÍCITOS
+La clave primaria tiene un índice implícito, pero eso no significa
+que si en lugar de crear la clave primaria, se crea un INDEX UNIQUE sobre el mismo
+campo, podamos decir que la tabla tiene clave primaria, no la tiene ya que no se ha
+definido explícitamente, en consecuencia no pueden crearse claves foráneas o
+referencias a esta tabla, puesto que no se ha definido su clave primaria.
+*/
+
+/*
+ELIMINAR TABLAS
+Para eliminar una tabla; no solo sus registros, sino la tabla como objeto de la BD,
+se emplea la instrucción DROP TABLE tal que así:
+*/
+
+drop table PROFESORES;
+
+
+-- USUARIOS ROLES Y PRIVILEGIOS
+-- creacion del rol
+create role ACADEMIA_ROL;
+-- otorgar privilegios de consulta al rol
+grant select on ALUMNOS to ACADEMIA_ROLE;
+grant select on CURSOS to ACADEMIA_ROLE;
+grant select on PROFESORES to ACADEMIA_ROLE;
+grant select on ALUMNOS_CURSOS to ACADEMIA_ROLE;
+-- creación de un nuevo usuario
+create user ACADEMIA_USER identified by 'PASWORD';
+-- otorgar el rol al usuario
+grant ACADEMIA_ROL to ACADEMIA_USER;
+
+--Es posible también revocar privilegios a un rol
+
+revoke select on ALUMNOS_CURSOS from ACADEMIA_ROLE;
+
+
+-- Para ver la informacion de una tabla
+select *
+ from INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+ where constraint_schema = 'ACADEMIA'
+
+
+
+/*
+                  RESUMEN
+Las instrucciones DDL permiten definir el modelo de datos en una BD. Esto es
+creación de tablas, establecer las relaciones entre tablas, crear usuarios y roles,
+otorgar privilegios etc.
+17. Lenguaje de definición de datos
+181
+Destacar las siguientes instrucciones DDL:
+• CREATE DATABASE: para crear BBDD en un SGBD.
+• CREATE TABLE: para crear tablas en una BD.
+• ALTER TABLE: para establecer la clave primaria y claves foráneas, así
+como añadir o eliminar columnas, establecer restricciones check o hacer
+nulo o no nulo un campo.
+• CREATE INDEX: para crear índices que agilicen las consultas.
+• DROP TABLE: para eliminar una tabla de la BD.
+• GRANT: para otorgar privilegios a un rol o usuario, así como otorgar un rol
+a otro rol o a un usuario.
+• REVOKE para quitar privilegios previamente otorgados.
+*/
+
+-- Ejercicio como traer claves Foraneas de una tabla:
+
+select *
+ from TABLE_CONSTRAINTS_ACADEMIA_NOMBRE_TABLA
+ where TABLE_NAME = 'ALUMNOS_CURSOS'
+ and CONSTRAINT_TYPE = 'FOREIGN KEY
