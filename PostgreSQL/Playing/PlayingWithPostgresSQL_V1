@@ -1,0 +1,75 @@
+Select "PRODUCTO", "PRECIO" from esquema."PRODUCTOS"
+
+
+
+Select "PRODUCTO", "PRECIO" from esquema."PRODUCTOS"
+Where "PRECIO" = 10 
+
+
+Select * from esquema."PEDIDOS"
+Select * from esquema."DEPARTAMENTOS"
+Select * from esquema."PERSONAS"
+Select * from esquema."PRODUCTOS"
+
+
+Select COUNT(*) from esquema."PEDIDOS"
+Select distinct ("PRODUCTO") from esquema."PEDIDOS"
+
+Select *,"PEDIDOS" from esquema."PEDIDOS"
+where "IMPORTE" > 100 AND "CANTIDAD" > 1S
+
+
+
+Select * from esquema."PRODUCTOS"
+WHERE "PRECIO" BETWEEN 40 AND 600
+
+-- HAVING
+Select "PRODUCTO", max("IMPORTE") from esquema."PEDIDOS"
+group by "PRODUCTO"
+having max("IMPORTE") > 100
+
+--INNER JOIN
+SELECT A."NOMBRE", B."DEPARTAMENTO"
+FROM esquema."PERSONAS" A 
+INNER JOIN esquema."DEPARTAMENTOS" B
+ON A."DEP" = B."DEP"
+
+--FUNCIONES DE FECHA
+SELECT NOW();
+SELECT TIMEOFDAY();
+
+--extraer dia
+select extract(day from "FECHA") 
+from esquema."PEDIDOS"
+
+--Extraer el quarter 
+select extract(quarter from "FECHA") 
+from esquema."PEDIDOS"
+
+--Saber de la fecha hasta la actualidad
+SELECT AGE("FECHA") AS "Antiguedad"
+from esquema."PEDIDOS"
+
+--FORMATO DE FECHA ESPECIFICO
+
+--FECHA ACTUAL
+SELECT to_char(current_timestamp, 'HH:MM:SS')
+FROM esquema."PEDIDOS"
+
+SELECT to_char(current_timestamp, 'DD:MM:YYYY')
+FROM esquema."PEDIDOS"
+
+
+--EJERCICIO
+select *, extract(month from "FECHA") as "MES",extract(day from "FECHA") as "DIA" 
+from esquema."PEDIDOS"
+
+
+Select 2 * '5'
+
+--Ejercicio
+
+
+
+Select * from esquema."PEDIDOS" AS T1
+
