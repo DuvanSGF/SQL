@@ -1,0 +1,48 @@
+-- CREATE TABLE usuario (
+-- 	id_usuarios SERIAL NOT NULL PRIMARY KEY,
+-- 	nombre VARCHAR(100) NOT NULL,
+-- 	apellido1 VARCHAR(100) NOT NULL,
+-- 	contraseña VARCHAR(100) NOT NULL,
+-- 	email VARCHAR(200) UNIQUE NOT NULL,
+-- 	fecha_creacion TIMESTAMP NOT NULL
+-- )
+
+DROP TABLE ocupaciones
+CREATE TABLE ocupaciones(
+	id_ocupacion SERIAL NOT NULL PRIMARY KEY,
+	tipo_ocupacion VARCHAR(100) NOT NULL,
+	descripcion VARCHAR(300) NOT NULL
+)
+
+CREATE TABLE usuarios_ocupaciones(
+	id_usuarios INTEGER REFERENCES usuario(id_usuarios),
+	id_ocupacion INTEGER REFERENCES ocupaciones(id_ocupacion)
+)
+
+
+INSERT INTO usuario(nombre,apellido1,contraseña,email,fecha_creacion)
+VALUES ('Duvan','Mejia','Admin123','damejia.98@gmail.com',CURRENT_TIMESTAMP)
+
+
+SELECT * FROM public.usuarios
+SELECT * FROM public.ocupaciones
+INSERT INTO ocupaciones(tipo_ocupacion,descripcion)
+VALUES('Administrativo','Realizacion de contabilidad'),('Ingenieria','Ingeniero de Software')
+
+SELECT * FROM public.usuarios_ocupaciones
+
+INSERT INTO usuarios_ocupaciones
+VALUES(1,1),(2,2)
+
+UPDATE usuario
+SET email= 'duvanmejia@gmail.com'
+Where id_usuarios = 2
+RETURNING nombre,apellido1,email
+
+ALTER TABLE usuario
+RENAME COLUMN id_usuarios to id_usuario
+
+ALTER TABLE usuario
+RENAME to usuarios
+
+SELECT  6 / NullIF(null,0) as RESULTADO
